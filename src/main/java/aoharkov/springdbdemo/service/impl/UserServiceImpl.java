@@ -28,4 +28,8 @@ public class UserServiceImpl implements UserService {
     public Iterable<UserEntity> getAllUsers() {
         return userRepository.findAll();
     }
+
+    public void emptyMethod() {
+
+    }
 }
