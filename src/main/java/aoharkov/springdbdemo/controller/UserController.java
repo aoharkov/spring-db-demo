@@ -21,6 +21,14 @@ public class UserController {
         return userService.register(user);
     }
 
+    @PostMapping(path = "/add2")
+    public @ResponseBody String add2NewUser(@RequestParam String name, @RequestParam String email) {
+        UserDTO user = new UserDTO();
+        user.setName(name);
+        user.setEmail(email);
+        return userService.register(user);
+    }
+
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<UserEntity> getAllUsers() {
         return userService.getAllUsers();

@@ -24,6 +24,14 @@ public class UserServiceImpl implements UserService {
         return "Saved";
     }
 
+    public String register2(UserDTO user) {
+        if (userRepository.findByEmail(user.getEmail()) != null) {
+            return "Already present in db";
+        }
+        userRepository.save(mapper.mapDTOToEntity(user));
+        return "Saved";
+    }
+
     @Override
     public Iterable<UserEntity> getAllUsers() {
         return userRepository.findAll();
